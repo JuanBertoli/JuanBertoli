@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+    
+{% block title %}
+    Posteos
+{% endblock title %}
+
+{% block contenido %}
+
+{% for post in posteos %}
+
+<div class="card" style="width: 18rem;">
+    <img src="{{ post.imagen.url }}" class="card-img-top" alt="No Hay Imagen">
+    <div class="card-body">
+      <h5 class="card-title">{{ post.titulo }}</h5>
+      <p class="card-text">{{ post.subtitulo }}</p>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Publicado: {{ post.fecha }}</li>
+      <li class="list-group-item">{{ post.categoria }}</li>
+      <li class="list-group-item">A third item</li>
+    </ul>
+    <div class="card-body">
+      <a href="post_detail.html" class="card-link">Ver Post</a>
+    </div>
+  </div>
+{% empty %}
+<h1>No Hay Posts</h1>
+{% endfor %} 
+
+{% endblock contenido %}
+
+
